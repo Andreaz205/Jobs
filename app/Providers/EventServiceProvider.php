@@ -22,7 +22,12 @@ class EventServiceProvider extends ServiceProvider
         ],
         UserSubscribed::class => [
             EmailOwnerAboutSubscription::class
-        ]
+        ],
+        \SocialiteProviders\Manager\SocialiteWasCalled::class => [
+            \SocialiteProviders\VKontakte\VKontakteExtendSocialite::class.'@handle',
+            \SocialiteProviders\Yandex\YandexExtendSocialite::class.'@handle',
+            \SocialiteProviders\Google\GoogleExtendSocialite::class.'@handle',
+        ],
     ];
 
     /**

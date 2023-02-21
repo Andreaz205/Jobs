@@ -18,6 +18,7 @@ class Kernel extends ConsoleKernel
         // $schedule->command('inspire')->hourly();
         $schedule->command('queue:restart')->everyFifteenMinutes()->withoutOverlapping();
         $schedule->command('queue:work --sleep=3 --tries=3')->everyMinute()->sendOutputTo(storage_path() . '/logs/queue-jobs.log')->withoutOverlapping();
+        $schedule->command('backup:run')->everyMinute();
     }
 
     /**
